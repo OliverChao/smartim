@@ -24,7 +24,8 @@ if !exists("g:smartim_debug")
   let g:smartim_debug = 0
 endif
 
-let s:imselect_path = expand('<sfile>:p:h') . "/im-select"
+" let s:imselect_path = expand('<sfile>:p:h') . "/im-select"
+let s:imselect_path = "im-select"
 let s:smartim_debug_output = $HOME . "/vim_smartim_debug_output"
 
 function! Smartim_debug_print(msg)
@@ -63,7 +64,7 @@ endfunction
 function! Smartim_SelectDefault()
   call Smartim_debug_print('>>> Smartim_SelectDefault')
 
-  if g:smartim_disable == 1 
+  if g:smartim_disable == 1
     return
   endif
 
@@ -81,7 +82,7 @@ endfunction
 function! Smartim_SelectSaved()
   call Smartim_debug_print('>>> Smartim_SelectSaved')
 
-  if g:smartim_disable == 1 
+  if g:smartim_disable == 1
     return
   endif
 
@@ -91,7 +92,7 @@ function! Smartim_SelectSaved()
     else
       silent call system(s:imselect_path . ' '. b:saved_im)
     endif
-     
+
     call Smartim_debug_print('b:saved_im=' . b:saved_im.'')
     call Smartim_debug_print('<<< Smartim_SelectSaved returned ' . v:shell_error)
   else
